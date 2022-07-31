@@ -30,26 +30,14 @@
     }
   }
 
+  .errorMessage {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
   .foodContainer {
     display: grid;
     gap: 2rem;
-
-    .foodTitle {
-      font-size: 2rem;
-      text-align: center;
-      white-space: pre-wrap;
-    }
-
-    .foodImage {
-      border-radius: 50%;
-    }
-
-    .menuItem {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
   }
 
   @media screen and (min-width: 1024px) {

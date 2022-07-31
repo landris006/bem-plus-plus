@@ -1,0 +1,54 @@
+.menuItem {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .foodTitle {
+    font-size: 2rem;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+
+  .imageWrapper {
+    position: relative;
+    cursor: pointer;
+
+    .frame {
+      border-radius: 50%;
+      max-height: 272px; // same as the image height
+      overflow: hidden;
+    }
+
+    &:hover {
+      .foodImage {
+        opacity: 0.7;
+        transform: scale(1.1);
+        transition: 0.5s ease-in-out;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 10px;
+        border-radius: 10px;
+        background-color: rgb(36, 36, 36);
+        transform: translate(-50%, -50%);
+        transition: 1s;
+        z-index: 1;
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+
+    .foodImage {
+      border-radius: 50%;
+    }
+  }
+}

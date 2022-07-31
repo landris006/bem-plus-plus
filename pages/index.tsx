@@ -1,30 +1,13 @@
 import type { NextPage } from 'next';
-import styles from '../styles/home.module.scss';
+import styles from '../styles/Home.module.scss';
 import slash from '../public/slash.svg';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useState } from 'react';
-import image from '../public/soup.jpg';
+import firstCourseImage from '../public/first-course.svg';
+import secondCourseImage from '../public/second-course.svg';
 import * as cheerio from 'cheerio';
 import moment from 'moment';
-
-interface MenuProps {
-  title: string;
-  imageUrl: string | StaticImageData;
-}
-const MenuItem = ({ title, imageUrl }: MenuProps) => {
-  return (
-    <div className={styles.menuItem}>
-      <h3 className={styles.foodTitle}>{title}</h3>
-      <Image
-        className={styles.foodImage}
-        src={imageUrl}
-        width={272}
-        height={272}
-        alt="soup"
-      />
-    </div>
-  );
-};
+import MenuItem from '../components/MenuItem';
 
 export const getServerSideProps = async () => {
   const page = await fetch('http://www.bemsorozo.hu/heti_menu.htm');
@@ -66,7 +49,8 @@ const Home: NextPage<HomeProps> = ({ tableData }) => {
     ['Saturday', 'Szombat'],
     ['Sunday', 'Vasárnap'],
   ]);
-  const currentDay = 'Szerda' || dayDict.get(moment().format('dddd'));
+
+  const currentDay = 'Hétfő' ?? dayDict.get(moment().format('dddd')) ?? 'Hétfő';
   const currentColumnIndex = tableData[0].indexOf(currentDay.toUpperCase());
   const firstCourse = tableData[2][currentColumnIndex];
   const secondCourse = tableData[3][currentColumnIndex];
@@ -90,11 +74,17 @@ const Home: NextPage<HomeProps> = ({ tableData }) => {
         </button>
       </div>
 
-      {isDaily && (
-        <div className={styles.foodContainer}>
-          <MenuItem title={firstCourse} imageUrl={image} />
-          {<MenuItem title={secondCourse} imageUrl={image} />}
-        </div>
+      {isDaily ? (
+        ['Szombat', 'Vasárnap'].includes(currentDay) ? (
+          <p className={styles.errorMessage}>{'Nézz vissza hétfőn! :)'}</p>
+        ) : (
+          <div className={styles.foodContainer}>
+            <MenuItem title={firstCourse} imageUrl={firstCourseImage} />
+            <MenuItem title={secondCourse} imageUrl={secondCourseImage} />
+          </div>
+        )
+      ) : (
+        <h4>WIP</h4>
       )}
     </main>
   );
