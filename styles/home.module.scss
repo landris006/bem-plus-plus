@@ -1,0 +1,64 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .currentDay {
+    margin: 3rem 0 1rem;
+    font-size: 3rem;
+  }
+
+  .buttonContainer {
+    display: flex;
+
+    .button {
+      font-weight: bold;
+      font-size: 2rem;
+      border: none;
+      padding: 10px;
+      background: #ffeaa0;
+      border-radius: 50px;
+      cursor: pointer;
+
+      &.active {
+        background: #ffcc18;
+      }
+
+      &:hover {
+        background-color: #ffcc18;
+      }
+    }
+  }
+
+  .foodContainer {
+    display: grid;
+    gap: 2rem;
+
+    .foodTitle {
+      font-size: 2rem;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+
+    .foodImage {
+      border-radius: 50%;
+    }
+
+    .menuItem {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .foodContainer {
+      grid-template-columns: 1fr 1fr;
+
+      .menuItem {
+        min-width: 33rem;
+      }
+    }
+  }
+}
