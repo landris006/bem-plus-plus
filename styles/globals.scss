@@ -2,6 +2,12 @@
   --header-height: 5.5rem;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   background: #fffdf4;
@@ -30,18 +36,18 @@ body {
     height: 100%;
     top: 50%;
     left: 50%;
-    background-color: rgba($color: #000000, $alpha: 0.2);
     transform: translate(-50%, -50%);
 
     .modal {
       position: absolute;
-      color: hsl(39, 77%, 83%);
       width: 90vw;
       height: 80vh;
       top: 55%;
       left: 50%;
-      background-color: rgb(223, 207, 171);
+      background-color: rgb(255, 234, 184);
+      border-radius: 10px;
       transform: translate(-50%, -50%);
+      overflow: hidden;
     }
   }
 }
@@ -62,13 +68,6 @@ a {
   body {
     color: white;
     background: black;
-
-    .modalWrapper {
-      .modal {
-        width: 50vw;
-        height: 50vh;
-      }
-    }
   }
 }
 
@@ -76,9 +75,18 @@ a {
   body {
     .modalWrapper {
       .modal {
-        max-width: 50vw;
-        height: 60vh;
+        max-width: 60vw;
+        /* height: 60vh; */
       }
     }
+  }
+}
+
+@keyframes spinner {
+  20% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

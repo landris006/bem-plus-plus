@@ -8,9 +8,7 @@ interface ModalProps {
   classNames?: string;
 }
 
-const Modal = ({ children, isOpen, onClose, classNames }: ModalProps) => {
-  console.log(classNames);
-
+const Modal = ({ children, isOpen, onClose, classNames = '' }: ModalProps) => {
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       onClose();

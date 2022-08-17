@@ -52,3 +52,92 @@
     }
   }
 }
+
+.courseInfoButtons {
+  display: flex;
+
+  .courseInfoButton {
+    background-color: #ffeaa0;
+    cursor: pointer;
+    flex: 1;
+
+    &.active,
+    &:hover {
+      background-color: #ffd53f !important;
+    }
+
+    .courseInfoTitles {
+      margin: 1rem 0;
+      text-align: center;
+    }
+  }
+}
+
+.modalTitle {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.imagesGridWrapper {
+  overflow: auto;
+  max-height: calc(100% - 10rem);
+
+  .imagesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1rem 1rem 0rem;
+    gap: 1rem;
+
+    .wrapper {
+      position: relative;
+      cursor: pointer;
+
+      .image {
+        border-radius: 10px;
+      }
+
+      &:hover {
+        &::after {
+          content: '';
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.16);
+          width: 100%;
+          height: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 0.5s;
+        }
+      }
+    }
+
+    .imagePlaceHolder {
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      background-color: #d9d9d9;
+      padding: 25%;
+
+      .spinner {
+        animation: 'spinner' 1.1s infinite;
+      }
+    }
+  }
+}
+
+.moreImages {
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 0.5rem;
+  background-color: #ffdb5b;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    background-color: #ffd53f !important;
+  }
+}

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "images-scraper": "^6.4.1",
     "moment": "^2.29.4",
     "next": "12.2.3",
     "react": "18.2.0",

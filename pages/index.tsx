@@ -50,7 +50,7 @@ const Home: NextPage<HomeProps> = ({ tableData }) => {
     ['Sunday', 'Vasárnap'],
   ]);
 
-  const currentDay = 'Hétfő' ?? dayDict.get(moment().format('dddd')) ?? 'Hétfő';
+  const currentDay = dayDict.get(moment().format('dddd')) ?? 'Hétfő';
   const currentColumnIndex = tableData[0].indexOf(currentDay.toUpperCase());
   const firstCourse = tableData[2][currentColumnIndex];
   const secondCourse = tableData[3][currentColumnIndex];
